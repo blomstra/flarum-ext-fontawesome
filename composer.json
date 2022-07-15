@@ -31,7 +31,7 @@
     "extra": {
         "flarum-extension": {
             "title": "Font Awesome 6",
-            "category": "",
+            "category": "feature",
             "icon": {
                 "name": "fab fa-font-awesome-flag",
                 "color": "#3a98d0",
