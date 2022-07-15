@@ -10,7 +10,7 @@
     "support": {
         "issues": "https://github.com/blomstra/flarum-ext-fontawesome/issues",
         "source": "https://github.com/blomstra/flarum-ext-fontawesome",
-        "forum": "https://discuss.flarum.org/d/"
+        "forum": "https://discuss.flarum.org/d/31219-blomstra-font-awesome-6"
     },
     "require": {
         "php": ">= 8.0",
