@@ -3,10 +3,11 @@
 /*
  * This file is part of blomstra/fontawesome.
  *
- * Copyright (c) 2022 Team Blomstra.
+ *  Copyright (c) 2022 Blomstra Ltd.
  *
- * For the full copyright and license information, please view the LICENSE.md
- * file that was distributed with this source code.
+ *  For the full copyright and license information, please view the LICENSE.md
+ *  file that was distributed with this source code.
+ *
  */
 
 namespace Blomstra\FontAwesome;
@@ -19,17 +20,17 @@ use Flarum\Http\UrlGenerator;
 
 return [
     (new Extend\Frontend('forum'))
-        ->css(__DIR__ . '/less/forum.less')
-        ->css(__DIR__ . '/less/common.less')
+        ->css(__DIR__.'/less/forum.less')
+        ->css(__DIR__.'/less/common.less')
         ->content(Frontend::class),
 
     (new Extend\Frontend('admin'))
-        ->js(__DIR__ . '/js/dist/admin.js')
-        ->css(__DIR__ . '/less/admin.less')
-        ->css(__DIR__ . '/less/common.less')
+        ->js(__DIR__.'/js/dist/admin.js')
+        ->css(__DIR__.'/less/admin.less')
+        ->css(__DIR__.'/less/common.less')
         ->content(Frontend::class),
 
-    new Extend\Locales(__DIR__ . '/locale'),
+    new Extend\Locales(__DIR__.'/locale'),
 
     (new Extend\ServiceProvider())
         ->register(FontAwesomePreloads::class)

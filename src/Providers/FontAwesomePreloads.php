@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of blomstra/fontawesome.
+ *
+ *  Copyright (c) 2022 Blomstra Ltd.
+ *
+ *  For the full copyright and license information, please view the LICENSE.md
+ *  file that was distributed with this source code.
+ *
+ */
+
 namespace Blomstra\FontAwesome\Providers;
 
 use Flarum\Foundation\AbstractServiceProvider;
@@ -26,7 +36,7 @@ class FontAwesomePreloads extends AbstractServiceProvider
         $this->container->extend('flarum.frontend.default_preloads', function (array $preloads) use ($settings, $url) {
             // Filter out FontAwesome preloads|
             $preloads = array_filter($preloads, function ($preload) {
-                return !str_contains($preload['href'], 'fonts/fa-');
+                return ! str_contains($preload['href'], 'fonts/fa-');
             });
 
             $faType = $settings->get('blomstra-fontawesome.type');
@@ -50,7 +60,7 @@ class FontAwesomePreloads extends AbstractServiceProvider
                     'type' => 'font/woff2',
                     'crossorigin' => ''
                 ];
-            } else if ($faType === 'kit') {
+            } elseif ($faType === 'kit') {
                 $preloads[] = [
                     'href' => $settings->get('blomstra-fontawesome.kitUrl'),
                     'as' => 'script',

@@ -1,5 +1,15 @@
 <?php
 
+/*
+ * This file is part of blomstra/fontawesome.
+ *
+ *  Copyright (c) 2022 Blomstra Ltd.
+ *
+ *  For the full copyright and license information, please view the LICENSE.md
+ *  file that was distributed with this source code.
+ *
+ */
+
 namespace Blomstra\FontAwesome\Providers;
 
 use Flarum\Foundation\AbstractServiceProvider;
@@ -7,7 +17,6 @@ use Flarum\Foundation\Paths;
 use Flarum\Frontend\Assets;
 use Flarum\Settings\SettingsRepositoryInterface;
 use Illuminate\Container\Container;
-use Illuminate\Support\Arr;
 
 class FontAwesomeLessImports extends AbstractServiceProvider
 {
@@ -31,12 +40,12 @@ class FontAwesomeLessImports extends AbstractServiceProvider
 
                 if ($type === 'kit') {
                     $fontawesomeStubPath = $paths->vendor.'/blomstra/fontawesome/fontawesome-6-kit-stub/less';
-                } else if ($type === 'free') {
+                } elseif ($type === 'free') {
                     $fontawesomeStubPath = $paths->vendor.'/blomstra/fontawesome/fontawesome-6-free/less';
                 } else {
                     return $assets;
                 }
-                
+
                 $assets->setLessImportDirs([
                     $fontawesomeStubPath => '',
                 ]);
