@@ -21,7 +21,7 @@ class FontAwesomePreloads extends AbstractServiceProvider
     /**
      * {@inheritdoc}
      */
-    public function register()
+    public function boot()
     {
         /**
          * @var SettingsRepositoryInterface
