@@ -64,6 +64,7 @@ class FontAwesomePreloads extends AbstractServiceProvider
                 $preloads[] = [
                     'href' => $settings->get('blomstra-fontawesome.kitUrl'),
                     'as' => 'script',
+                    'crossorigin' => 'anonymous'
                 ];
             }
 
