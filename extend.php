@@ -16,7 +16,8 @@ use Blomstra\FontAwesome\Content\Frontend;
 use Blomstra\FontAwesome\Providers\FontAwesomeLessImports;
 use Blomstra\FontAwesome\Providers\FontAwesomePreloads;
 use Flarum\Extend;
-use Flarum\Http\UrlGenerator;
+use Illuminate\Contracts\Filesystem\Cloud;
+use Illuminate\Contracts\Filesystem\Factory;
 
 return [
     (new Extend\Frontend('forum'))
@@ -43,10 +44,10 @@ return [
     (new Extend\Theme())
         ->addCustomLessFunction('blomstra-fontawesome-font-urls', function ($style) {
             /**
-             * @var UrlGenerator
+             * @var Cloud
              */
-            $url = resolve(UrlGenerator::class);
-            $uri = $url->to('forum')->base().'/assets/extensions/blomstra-fontawesome/fontawesome-6-free/fa-'.$style;
+            $disk = resolve(Factory::class)->disk('flarum-assets');
+            $uri = $disk->url('extensions/blomstra-fontawesome/fontawesome-6-free/fa-'.$style);
 
             if ($style === 'solid') {
                 $uri .= '-900';

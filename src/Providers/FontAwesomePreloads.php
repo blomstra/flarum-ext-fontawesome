@@ -13,27 +13,21 @@
 namespace Blomstra\FontAwesome\Providers;
 
 use Flarum\Foundation\AbstractServiceProvider;
-use Flarum\Http\UrlGenerator;
 use Flarum\Settings\SettingsRepositoryInterface;
+use Illuminate\Contracts\Filesystem\Cloud;
+use Illuminate\Contracts\Filesystem\Factory;
 
 class FontAwesomePreloads extends AbstractServiceProvider
 {
     /**
      * {@inheritdoc}
      */
-    public function boot()
+    public function boot(SettingsRepositoryInterface $settings, Factory $filesystem)
     {
-        /**
-         * @var SettingsRepositoryInterface
-         */
-        $settings = $this->container[SettingsRepositoryInterface::class];
+        /** @var Cloud $disk */
+        $disk = $filesystem->disk('flarum-assets');
 
-        /**
-         * @var UrlGenerator
-         */
-        $url = $this->container[UrlGenerator::class];
-
-        $this->container->extend('flarum.frontend.default_preloads', function (array $preloads) use ($settings, $url) {
+        $this->container->extend('flarum.frontend.default_preloads', function (array $preloads) use ($settings, $disk) {
             // Filter out FontAwesome preloads|
             $preloads = array_filter($preloads, function ($preload) {
                 return ! str_contains($preload['href'], 'fonts/fa-');
@@ -43,19 +37,19 @@ class FontAwesomePreloads extends AbstractServiceProvider
 
             if ($faType === 'free') {
                 $preloads[] = [
-                    'href' => $url->to('forum')->base().'/assets/extensions/blomstra-fontawesome/fontawesome-6-free/fa-brands-400.woff2',
+                    'href' => $disk->url('/extensions/blomstra-fontawesome/fontawesome-6-free/fa-brands-400.woff2'),
                     'as' => 'font',
                     'type' => 'font/woff2',
                     'crossorigin' => ''
                 ];
                 $preloads[] = [
-                    'href' => $url->to('forum')->base().'/assets/extensions/blomstra-fontawesome/fontawesome-6-free/fa-regular-400.woff2',
+                    'href' => $disk->url('/extensions/blomstra-fontawesome/fontawesome-6-free/fa-regular-400.woff2'),
                     'as' => 'font',
                     'type' => 'font/woff2',
                     'crossorigin' => ''
                 ];
                 $preloads[] = [
-                    'href' => $url->to('forum')->base().'/assets/extensions/blomstra-fontawesome/fontawesome-6-free/fa-solid-900.woff2',
+                    'href' => $disk->url('/extensions/blomstra-fontawesome/fontawesome-6-free/fa-solid-900.woff2'),
                     'as' => 'font',
                     'type' => 'font/woff2',
                     'crossorigin' => ''
