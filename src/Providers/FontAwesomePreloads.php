@@ -37,19 +37,19 @@ class FontAwesomePreloads extends AbstractServiceProvider
 
             if ($faType === 'free') {
                 $preloads[] = [
-                    'href' => $disk->url('/extensions/blomstra-fontawesome/fontawesome-6-free/fa-brands-400.woff2'),
+                    'href' => $disk->url('extensions/blomstra-fontawesome/fontawesome-6-free/fa-brands-400.woff2'),
                     'as' => 'font',
                     'type' => 'font/woff2',
                     'crossorigin' => ''
                 ];
                 $preloads[] = [
-                    'href' => $disk->url('/extensions/blomstra-fontawesome/fontawesome-6-free/fa-regular-400.woff2'),
+                    'href' => $disk->url('extensions/blomstra-fontawesome/fontawesome-6-free/fa-regular-400.woff2'),
                     'as' => 'font',
                     'type' => 'font/woff2',
                     'crossorigin' => ''
                 ];
                 $preloads[] = [
-                    'href' => $disk->url('/extensions/blomstra-fontawesome/fontawesome-6-free/fa-solid-900.woff2'),
+                    'href' => $disk->url('extensions/blomstra-fontawesome/fontawesome-6-free/fa-solid-900.woff2'),
                     'as' => 'font',
                     'type' => 'font/woff2',
                     'crossorigin' => ''
