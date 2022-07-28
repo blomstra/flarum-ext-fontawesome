@@ -13,7 +13,6 @@
         "forum": "https://discuss.flarum.org/d/31219-blomstra-font-awesome-6"
     },
     "require": {
-        "php": ">= 8.0",
         "flarum/core": "^1.2.0"
     },
     "authors": [
